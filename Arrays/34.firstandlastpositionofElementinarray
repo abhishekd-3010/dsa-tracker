@@ -1,0 +1,20 @@
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int[] arr = {-1, -1};
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target) {
+                arr[0] = i; // first position
+                
+                // Find the last position
+                int j = i;
+                while (j + 1 < nums.length && nums[j + 1] == target) {
+                    j++;
+                }
+                arr[1] = j;
+                return arr; // done, no need to continue
+            }
+        }
+        return arr; // target not found
+    }
+}
